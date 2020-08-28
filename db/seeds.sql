@@ -1,7 +1,8 @@
+
 INSERT INTO burgers
-    (id, burgerName, devoured)
+    (id,burgerName, devoured)
 VALUES
-    ("baconCheeseBurger", false),
-    ("baconBlueBurger", false),
-    ("veggieBurger", false),
-    ("bigMick", true);
+    (1, "baconCheeseBurger", false),
+    (2, "baconBlueBurger", false),
+    (3, "veggieBurger", false),
+    (4, "bigMick", true);
