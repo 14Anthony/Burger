@@ -2,11 +2,24 @@
 
 <h2>EatABurger</h2>
 {{!-- !-- from the cats formatting with a button addition. bootstrapp ....????  I think I may have to add a libray to the main????ask mike --}}
+
+
 <ul>
     {{#each burger}}
     {{#unless devoured}}
-    {{> burger/burger-block devoured=false}}
-    <li>{{burgerName}}<button class="btn" type="button" data-id={{id}}>EAT AWAY</button></li>
+    {{ burger/burger-block devoured=false}}
+    <li>{{burgerName}}<button class="btnD" type="button" data-id={{id}}>EAT AWAY</button></li>
     {{/unless}}
+    {{/each}}
+</ul>
+
+<ul>
+    {{#each burger}}
+    {{#if devoured}}
+    {{burger/burger-block devoured = true}}
+    <li>
+        {{burgerName}}
+    </li>
+    {{/if}}
     {{/each}}
 </ul>
