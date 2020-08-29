@@ -6,8 +6,9 @@ $(document).ready(function () {
 
         const newBurger = {
             name: $("#ca").val().trim(),
-            sleepy: $("[name=devoured]:checked").val().trim()
+            devoured: $("[name=devoured]:checked").val().trim()
         };
+
 
         $(".btn").on("click", function (event) {
             const id = $(this).data("id");
@@ -15,37 +16,40 @@ $(document).ready(function () {
                 devoured: true
             }
 
-        })
-        ///I need move that burger into an object, with its name and if it was eaten or devoured??? naming
-        //I need to post that to the db, in an ajax call 
-        // Send the POST request.
-        //      $.ajax("/api/cats", {
-        //         type: "POST",
-        //         data: newCat
-        //       }).then(
-        //         function() {
-        //           console.log("created new cat");
-        //           // Reload the page to get the updated list
-        //           location.reload();
-        //         }
-        //       );
-        //     });
-        //   });
-        // then I need the put routing using ajax to a new devoured status
-        // Send the PUT request.
-        // $.ajax("/api/cats/" + id, {
-        //     type: "PUT",
-        //     data: newSleepState
-        //   }).then(
-        //     function() {
-        //       console.log("changed sleep to", newSleep);
-        //       // Reload the page to get the updated list
-        //       location.reload();
-        //     }
-        //   );
-        // });
-        // I need to create a button and  place it and the burger information on the page on the page.
-        //I need to be able to delet the data and reload everything clean.
+            // then I need the put routing using ajax to a new devoured status, 
+            // Send the PUT request.
+            $.ajax("/api/burger/" + id, {
+                type: "PUT",
+                data: newBurger
+            }).then(
+                function () {
+                    console.log("changed stage to", newStage);
+                    // Reload the page to get the updated list
+                    location.reload();
+                }
+            );
+        });
 
 
     })
+
+    ///I need move that burger into an object, with its name and if it was eaten or devoured??? naming
+    //I need to post that to the db, in an ajax call 
+    // Send the POST request.
+    //      $.ajax("/api/cats", {
+    //         type: "POST",
+    //         data: newCat
+    //       }).then(
+    //         function() {
+    //           console.log("created new cat");
+    //           // Reload the page to get the updated list
+    //           location.reload();
+    //         }
+    //       );
+    //     });
+    //   });
+    // I need to create a button and  place it and the burger information on the page on the page.
+    //I need to be able to delet the data and reload everything clean.
+
+
+})
