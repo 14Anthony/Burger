@@ -47,9 +47,7 @@ $(".btn").on("click", function (event) {
 });
 
 
-    })
-    // I need to create a button and  place it and the burger information on the page on the page.
-    //I need to be able to delet the data and reload everything clean.
+
+    //I need to be able to delet the data and reload everything clean. /// I need to create a new button class for this to work.??????I need an ajax delete that does clash with the put
 
 
-})
