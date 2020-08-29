@@ -1,0 +1,12 @@
+<h1>HAMBURGERLER</h1>
+
+<h2>EatABurger</h2>
+{{!-- !-- from the cats formatting with a button addition. bootstrapp ....????  I think I may have to add a libray to the main????ask mike --}}
+<ul>
+    {{#each burger}}
+    {{#unless devoured}}
+    {{> burger/burger-block devoured=false}}
+    <li>{{burgerName}}<button class="btn" type="button" data-id={{id}}>EAT AWAY</button></li>
+    {{/unless}}
+    {{/each}}
+</ul>
