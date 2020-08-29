@@ -13,6 +13,18 @@ const burger = {
             cb(res);
         });
     },
+    update: function (objColVals, stage, cb) {
+        orm.update("burgers", objColVals, stage, function (res) {
+            cb(res);
 
+        });
 
-}
+    },
+    delete: function (stage, cb) {
+        orm.delete("burgers", stage, function (res) {
+            cb(res);
+        });
+    }
+};
+
+module.exports = burger;
