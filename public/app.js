@@ -9,7 +9,7 @@ $(document).ready(function () {
             sleepy: $("[name=devoured]:checked").val().trim()
         };
 
-        $(".btn").on("click", (event) => {
+        $(".btn").on("click", function (event) {
             const id = $(this).data("id");
             const newStage = {
                 devoured: true
