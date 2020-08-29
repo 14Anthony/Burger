@@ -26,6 +26,8 @@ $(document).ready(function () {
         );
     });
 });
+//I need a neww naming structure in the html .....?  too many btn.s
+
 $(".btn").on("click", function (event) {
     const id = $(this).data("id");
     const newStage = {
