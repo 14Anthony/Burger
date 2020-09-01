@@ -66,4 +66,4 @@ router.delete("/api/burgers/:id", function (req, res, next) {
 });
 
 //export module for use elsewhere.
-module.export = router;
+module.exports = router;
