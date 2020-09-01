@@ -46,12 +46,14 @@ $(document).ready(function () {
             }
         );
     });
+    // send a delet request.
+    $(".btn").on("click", function (e) {
+        const id = $(this).data("id");
 
+        $.ajax("api/burger/" + id, {
+            type: "DELETE",
 
-});
-
-
-
-    //I need to be able to delete the data and reload everything clean. /// I need to create a new button class for this to work.??????I need an ajax delete that does clash with the put
-
-
+        }).then(function () {
+            location.reload();
+        })
+    });
