@@ -8,7 +8,7 @@
     <div class="form-group">
         <input type="text" id="ca" name="name" placeholder="BurgerName">
     </div>
-    <button class="btn" type="submit">BRING IT</button>
+    <button type="submit">BRING IT</button>
 </form>
 {{!-- !-- from the cats formatting with a button addition. bootstrapp ....????  I think I may have to add a libray to the main????ask mike --}}
 
@@ -28,9 +28,7 @@
     {{#each burger}}
     {{#if devoured}}
     {{burger/burger-block devoured = true}}
-    <li>
-        {{burgerName}}
-    </li>
+    <li>{{burger_name}}<button class="btn" type="button" data-id="{{this.id}}">Done!</button></li>
     {{/if}}
     {{/each}}data-id
 </ul>
