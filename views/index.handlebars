@@ -1,8 +1,16 @@
 <h1>HAMBURGERLER</h1>
 
-<h2>EatABurger</h2>
+<form class="create-form">
+
+    <div class="form-group">
+        <label for="ca">BURGER NAME:</label>
+        <input type="text" id="ca" name="name">
+    </div>
+    <button class="btn" type="submit">BRING IT</button>
+</form>
 {{!-- !-- from the cats formatting with a button addition. bootstrapp ....????  I think I may have to add a libray to the main????ask mike --}}
 
+<h2>HUNGRY?</h2>
 
 <ul>
     {{#each burger}}
@@ -13,6 +21,7 @@
     {{/each}}
 </ul>
 
+<h2>Devoured </h2>
 <ul>
     {{#each burger}}
     {{#if devoured}}
@@ -23,22 +32,3 @@
     {{/if}}
     {{/each}}data-id
 </ul>
-
-
-<h2>GIVE to the BURGERLER </h2>
-
-<form class="create-form">
-
-    <div class="form-group">
-        <label for="ca">BURGER NAME:</label>
-        <input type="text" id="ca" name="name">
-    </div>
-
-    <div class="form-group">
-
-        <input type="radio" name="sleepy" value="1" checked> READY<br>
-        <input type="radio" name="sleepy" value="0"> DEVOUR
-    </div>
-
-    <button type="submit">BRING IT</button>
-</form>
