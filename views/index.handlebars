@@ -12,25 +12,31 @@
 
     <button type="submit">Add a Burger</button>
 </form>
+<div class="div container col-12">
+    <div class="containercol-6">
+        <h2>Ready to Eat</h2>
 
-<h2>Ready to Eat</h2>
+        <ul style="list-style-type:none;">
+            {{#each burger}}
 
-<ul style="list-style-type:none;">
-    {{#each burger}}
-    {{#unless devoured}}
-    {{burger/burger-block devoured=false}}
-    <li>{{burger_name}}<button class="btnD" type="button" data-id={{id}}>Devour Now!</button></li>
-    {{/unless}}
-    {{/each}}
-</ul>
+            {{#unless devoured}}
+            {{burger/burger-block devoured=false}}
+            <li>{{burger_name}}<button class="btnD" type="button" data-id={{id}}>Devour Now!</button></li>
+            {{/unless}}
+            {{/each}}
+        </ul>
+    </div>
 
-<h2>Devoured</h2>
+    <div class="containercol-6">
+        <h2>Devoured</h2>
 
-<ul style="list-style-type:none;">
-    {{#each burger}}
-    {{#if devoured}}
-    {{burger/burger-block devoured=true}}
-    <li>{{burger_name}}<button class="btn" type="button" data-id="{{this.id}}">Done!</button></li>
-    {{/if}}
-    {{/each}}
-</ul>
+        <ul style="list-style-type:none;">
+            {{#each burger}}
+            {{#if devoured}}
+            {{burger/burger-block devoured=true}}
+            <li>{{burger_name}}<button class="btn" type="button" data-id="{{this.id}}">Done!</button></li>
+            {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+</div>
