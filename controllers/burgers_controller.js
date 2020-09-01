@@ -13,7 +13,7 @@ const burger = require("../models/burger.js");
 // Create all our routes and set up logic within those routes where required.
 
 router.get("/", function (req, res, next) {
-    burger.all(function (data) {
+    burger.selectAll(function (data) {
         const hbsObject = {
             burger: data
         };
@@ -25,7 +25,7 @@ router.get("/", function (req, res, next) {
 //post route, burgerName and Devoured.
 
 router.post("/api/burgers", function (req, res, next) {
-    burger.create(["burgerName", "devoured"], [req.body.burgerName, req.body.devoured], function (result) {
+    burger.insertOne(["burgerName", "devoured"], [req.body.burgerName, req.body.devoured], function (result) {
 
         // Send back the ID of the new quote
 
@@ -38,7 +38,7 @@ router.put("/api/burgers/:id", function (req, res, next) {
 
     console.log("staged", stage);
 
-    burger.update(
+    burger.updateOne(
         {
             devoured: req.body.devoured
         },

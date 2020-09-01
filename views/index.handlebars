@@ -1,34 +1,36 @@
-<h1>HAMBURGERLER</h1>
 <div>
-    <img src="/public/assets/hamburglar-png-16-transparent.png">
+    <img src="/public/assets/hamburglar-png-16-transparent.png" width="25%">
 </div>
+
 <h1>EatABurger!</h1>
+
 <form class="create-form">
 
     <div class="form-group">
-        <input type="text" id="ca" name="name" placeholder="BurgerName">
+        <input type="text" id="ca" name="name" placeholder="Burger Name">
     </div>
-    <button type="submit">BRING IT</button>
+
+    <button type="submit">Add a Burger</button>
 </form>
-{{!-- !-- from the cats formatting with a button addition. bootstrapp ....????  I think I may have to add a libray to the main????ask mike --}}
 
-<h2>HUNGRY?</h2>
+<h2>Ready to Eat</h2>
 
-<ul>
+<ul style="list-style-type:none;">
     {{#each burger}}
     {{#unless devoured}}
-    {{ burger/burger-block devoured=false}}
-    <li>{{burgerName}}<button class="btnD" type="button" data-id={{id}}>EAT AWAY</button></li>
+    {{burger/burger-block devoured=false}}
+    <li>{{burger_name}}<button class="btnD" type="button" data-id={{id}}>Devour Now!</button></li>
     {{/unless}}
     {{/each}}
 </ul>
 
-<h2>Devoured </h2>
-<ul>
+<h2>Devoured</h2>
+
+<ul style="list-style-type:none;">
     {{#each burger}}
     {{#if devoured}}
-    {{burger/burger-block devoured = true}}
+    {{burger/burger-block devoured=true}}
     <li>{{burger_name}}<button class="btn" type="button" data-id="{{this.id}}">Done!</button></li>
     {{/if}}
-    {{/each}}data-id
+    {{/each}}
 </ul>
