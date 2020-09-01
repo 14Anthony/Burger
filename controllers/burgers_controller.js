@@ -53,17 +53,7 @@ router.put("/api/burgers/:id", function (req, res, next) {
         }
     );
 });
-//deleting burgers similar I think to above, with put'ing...?/???
-router.delete("/api/burgers/:id", function (req, res, next) {
-    const stage = "id=" + req.paprams.id;
-    burger.delete(stage, function (result) {
-        //if now rows changed then then post the error for the page with the err status 404 like above
-        if (result.affectedrows === 0) {
-            return res.status(404).end;
-        }
-        res.status(200).end();
-    });
-});
+
 
 //export module for use elsewhere.
 module.exports = router;
