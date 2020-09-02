@@ -1,5 +1,5 @@
 body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background: linear-gradient(-45deg, #7007e7, #380add, #075492, #098be2);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
 }
@@ -14,4 +14,55 @@ body {
 	100% {
 		background-position: 0% 50%;
 	}
+}
+h1{
+    color:rgb(112, 43, 223;
+    padding: 40px;
+    font-weight: bolder;
+    font-size: 60px;
+}
+h2{
+    width: 50%;
+    margin: auto;
+    padding: 20px;
+    border-bottom: lightslategray solid 1px;
+}
+ul li {
+    background-color: lightgoldenrodyellow;
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+    font-weight: bold;
+}
+.btnD{
+	background-color: rgb(112, 43, 223);
+    color: white;
+    font-weight: bold;
+    margin-left: 20px;
+    font-size: small;
+    padding: 5px;
+    border: 2px solid rgb(116, 6, 206);
+    border-radius: 25px;
+}
+.btnD:hover {
+    cursor: pointer;
+}
+.btn {
+    background-color: rgb(112, 43, 223);
+    color: white;
+    font-weight: bold;
+    margin-left: 20px;
+    font-size: small;
+    padding: 5px;
+    border: 2px solid rgb(116, 6, 206);
+    border-radius: 25px;
+}
+#ca{
+    text-align: center;
+}
+button{
+    background-color: #0c0a01;
+}
+button:hover {
+cursor: zoom-in;
 }
