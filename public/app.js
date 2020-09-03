@@ -46,7 +46,24 @@ $(document).ready(function () {
             }
         );
     });
+    $(".btn").on("click", function (e) {
+        // e.preventDefault();
+
+
+        var id = $(this).data("id");
+
+        $.ajax("/api/burgers/" + id, {
+            type: "DELETE"
+        }).then(function () {
+            location.reload();
+        })
+
+    })
+
 });
+
+//I am adding the delete back into the program even thought it doesn't aske for it in the readme.  
+
 
 
 //const pastSch = $("<button>").appendTo('#searchHistory');
