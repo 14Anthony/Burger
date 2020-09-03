@@ -14,10 +14,10 @@ const burger = require("../models/burger.js");
 
 router.get("/", function (req, res, next) {
     burger.selectAll(function (data) {
-        const hbsObject = {
-            burgers: data
+        var hbsObject = {
+            burger: data
         };
-        console.log(hbsObject);
+        console.log("Test: " + JSON.stringify(hbsObject));
         res.render("index", hbsObject);
     });
 });
@@ -25,10 +25,10 @@ router.get("/", function (req, res, next) {
 //post route, burgerName and Devoured.
 
 router.post("/api/burgers", function (req, res, next) {
-    burger.insertOne(["burgerName", "devoured"], [req.body.burgerName, req.body.devoured], function (result) {
-
+    burger.create([
+        "burgerName", "devoured"
+    ], [req.body.burgerName, req.body.devoured], function (result) {
         // Send back the ID of the new quote
-
         res.json({ id: result.insertId });
     });
 });
@@ -47,13 +47,23 @@ router.put("/api/burgers/:id", function (req, res, next) {
             if (result.changedRows == 0) {
                 // If no rows were changed, then the ID must not exist, so 404
                 return res.status(404).end();
-            } else {
-                res.status(200).end();
             }
+            res.status(200).end();
         }
     );
 });
+router.delete("/api/burgers/:id", function (req, res) {
+    const stage = "id = " + req.params.id;
 
+    burger.delete(stage, function (result) {
+        if (result.affectedRows == 0) {
+            // If no rows were changed, then the ID must not exist, so 404
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
+});
 
 //export module for use elsewhere.
 module.exports = router;
