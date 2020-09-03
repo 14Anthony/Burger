@@ -1,56 +1,48 @@
 $(document).ready(function () {
-    /// check for the weather application, I need to grab the entire form on submit...???  the new creation of the burger
-    $(".create-form").on("submit", function (event) {
 
+    $(".create-form").on("submit", function (event) {
+        // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
         const newBurger = {
-            burgerName: $("#ca").val().trim(),
-            devoured: $("[name=devoured]:checked").val()
+            burger_name: $("#ca").val().trim(),
+            devoured: $("[name=devour]:checked").val()
         };
 
-
-
-        // /I need move that burger into an object, with its name and if it was eaten or devoured??? naming
-        // I need to post that to the db, in an ajax call 
         // Send the POST request.
         $.ajax("/api/burgers", {
             type: "POST",
             data: newBurger
         }).then(
             function () {
-                // console.log("created new Burger");
                 // Reload the page to get the updated list
                 location.reload();
+
             }
         );
     });
-    //I need a neww naming structure in the html .....?  too many btn.s
 
-    $(".btnD").on("click", function (event) {
+    $(".btnD").on("click", function (e) {
+        // e.preventDefault();
+
+
         const id = $(this).data("id");
-        const newStage = {
+        const newDevourStatus = {
             devoured: true
         }
-
-        // then I need the put routing using ajax to a new devoured status, 
-        // Send the PUT request.
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: newStage
-        }).then(
-            function () {
-                // console.log("changed stage to", newStage);
-                // Reload the page to get the updated list
-                location.reload();
-            }
-        );
-    });
+            data: newDevourStatus
+        }).then(function () {
+            location.reload();
+        })
+
+    })
     $(".btn").on("click", function (e) {
         // e.preventDefault();
 
 
-        var id = $(this).data("id");
+        const id = $(this).data("id");
 
         $.ajax("/api/burgers/" + id, {
             type: "DELETE"
@@ -59,7 +51,6 @@ $(document).ready(function () {
         })
 
     })
-
 });
 
 //I am adding the delete back into the program even thought it doesn't aske for it in the readme.  

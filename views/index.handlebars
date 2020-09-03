@@ -7,36 +7,32 @@
 <form class="create-form">
 
     <div class="form-group">
+
         <input type="text" id="ca" name="name" placeholder="Burger Name">
     </div>
 
+
     <button type="submit">Add a Burger</button>
 </form>
-<div class="div container-fluid col-12">
-    <div class="containercol-4">
-        <h2>Ready to Eat</h2>
 
-        <ul style="list-style-type:none;">
-            {{#each burgers}}
+<h2>Ready to Devour</h2>
 
-            {{#unless devoured}}
-            {{burger/burger-block devoured=false}}
-            <li>{{burgerName}}<button class="btnD" type="button" data-id={{id}}>Devour Now!</button></li>
-            {{/unless}}
-            {{/each}}
-        </ul>
-    </div>
+<ul>
+    {{#each burger}}
+    {{#unless devoured}}
+    {{burger/burger-block devoured=false}}
+    <li>{{burger_name}}<button class="btnD" type="button" data-id={{id}}>Devour Now!</button></li>
+    {{/unless}}
+    {{/each}}
+</ul>
 
-    <div class="containercol-4">
-        <h2>Devoured</h2>
+<h2>Devoured Burgers</h2>
 
-        <ul style="list-style-type:none;">
-            {{#each burgers}}
-            {{#if devoured}}
-            {{burger/burger-block devoured=true}}
-            <li>{{burgerName}}<button class="btn" type="button" data-id="{{this.id}}">Done!</button></li>
-            {{/if}}
-            {{/each}}
-        </ul>
-    </div>
-</div>
+<ul>
+    {{#each burger}}
+    {{#if devoured}}
+    {{burger/burger-block devoured=true}}
+    <li>{{burger_name}}<button class="btn" type="button" data-id="{{this.id}}">Done!</button></li>
+    {{/if}}
+    {{/each}}
+</ul>
