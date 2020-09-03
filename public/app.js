@@ -6,7 +6,7 @@ $(document).ready(function () {
 
         const newBurger = {
             burgerName: $("#ca").val().trim(),
-            devoured: $("[burgerName=devoured]:checked").val().trim()
+            devoured: $("[name=devoured]:checked").val()
         };
 
 
@@ -35,9 +35,9 @@ $(document).ready(function () {
 
         // then I need the put routing using ajax to a new devoured status, 
         // Send the PUT request.
-        $.ajax("/api/burger/" + id, {
+        $.ajax("/api/burgers/" + id, {
             type: "PUT",
-            data: newBurger
+            data: newStage
         }).then(
             function () {
                 // console.log("changed stage to", newStage);
