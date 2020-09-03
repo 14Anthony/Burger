@@ -20,7 +20,13 @@ const burger = {
         });
 
     },
-
+    delete: function (stage, cb) {
+        orm.delete("burgers", stage, function (res) {
+            cb(res);
+        });
+    }
 };
+
+
 
 module.exports = burger;
